@@ -1,0 +1,23 @@
+{
+  "name": "2025datastructure",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/kfhwang/2025DataStructure#readme",
+  "bugs": {
+    "url": "https://github.com/kfhwang/2025DataStructure/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfhwang/2025DataStructure.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "bmi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
