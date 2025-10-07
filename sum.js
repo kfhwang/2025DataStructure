@@ -11,9 +11,11 @@ function sum(n){
     var result=0;
     var i=1;
     do{
-        result += i;
+        result += i; //n O(n)
     }while(i++ < n);
     return result;
+    //O(1)
+    //return (1+n)*n/2
 }
 //Test
 var n=10;
