@@ -6,6 +6,12 @@ class Life{
         this.col = _col;
         this.grid=[]
         //dynamic 2d array
+        for (let r = 0; r < _row; r++) {
+            this.grid.push([]);
+            for (let c = 0; c < _col; c++) {
+                this.grid[r].push(DEAD)
+            }
+        }
 
     }
 }
