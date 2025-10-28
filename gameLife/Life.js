@@ -41,12 +41,17 @@ class Life{
                var nCount = this.neighborCount(r, c);
                //update 
                //exercise 
-               if(this.grid[r][c]==LIVE && (nCount<2 || nCount>3) ) {
-                    nextGrid[r][c]=DEAD;
+            //    if(this.grid[r][c]==LIVE && (nCount<2 || nCount>3) ) {
+            //         nextGrid[r][c]=DEAD;
+            //    }
+            //    if(this.grid[r][c]==DEAD && nCount==3){
+            //         nextGrid[r][c]=LIVE;
+            //    }
+               if(nCount<2 || nCount>3){
+                   nextGrid[r][c]= (this.grid[r][c]==LIVE) ? DEAD: LIVE;
                }
-               if(this.grid[r][c]==DEAD && nCount==3){
-                    nextGrid[r][c]=LIVE;
-               }
+               if(nCount==3)
+                nextGrid[r][c]= (this.grid[r][c]==DEAD) ? LIVE: DEAD;
             }
         }
         this.grid = nextGrid;
