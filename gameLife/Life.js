@@ -48,10 +48,11 @@ class Life {
                 //         nextGrid[r][c]=LIVE;
                 //    }
                 if (nCount < 2 || nCount > 3) {
-                    nextGrid[r][c] = (this.grid[r][c] == LIVE) ? DEAD : LIVE;
+                    //nextGrid[r][c] = (this.grid[r][c] == LIVE) ? DEAD : nextGrid[r][c];
+                    if(this.grid[r][c] == LIVE)  nextGrid[r][c]=DEAD;
                 }
                 if (nCount == 3)
-                    nextGrid[r][c] = (this.grid[r][c] == DEAD) ? LIVE : DEAD;
+                    nextGrid[r][c] = (this.grid[r][c] == DEAD) ? LIVE : nextGrid[r][c];
             }
         }
         this.grid = nextGrid;
@@ -103,9 +104,48 @@ Life.prototype.init = function (type) {
 // function getStatusAt(_row,_col){
 
 // }
+//draw board
+class Board{
+    constructor(_game, _canvas){
+        this.game=_game;
+        this.canvas = document.getElementById(_canvas).getContext("2d");
+        //canvas width/game.col
+        var wSize = document.getElementById(_canvas).width/this.game.col;
+        var hSize = document.getElementById(_canvas).height/this.game.row;
+        this.size = Math.min(wSize, hSize);
+        this.canvas.lineStyle = "#000000";
+    }
+    drawPoint = function(_r, _c){
+        if(this.game.grid[_r][_c]==LIVE)
+            this.canvas.fillStyle = "#ff0000";//red
+        else
+            this.canvas.fillStyle = "#ffffff";//white
+        //fill
+        this.canvas.fillRect(_c*this.size, _r*this.size, this.size, this.size);
+        //border
+        this.canvas.strokeRect(_c*this.size, _r*this.size, this.size, this.size);
+    }
+    draw = function(){
+        for (let r = 0; r < this.game.row; r++) {
+            for (let c = 0; c < this.game.col; c++) {
+                this.drawPoint(r,c);
+            }
+            
+        }
+    }
 
-var myGame1 = new Life(10, 10)
+}
+
+
+var myGame1 = new Life(20, 20)
+myGame1.init(2);
+var myBoard = new Board(myGame1,"board");
+myBoard.draw();
+
+function toNext(){
+   myGame1.update();
+   myBoard.draw(); 
+}
 var myGame2 = new Life(5, 5)
-myGame1.init(1);
 myGame1.update()
 console.log(myGame1.grid)
