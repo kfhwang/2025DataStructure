@@ -43,7 +43,7 @@ function bracketMatch(str) {
         }
         //else if (str[i] == '}' || str[i] == ']' || str[i] == ')') {
         //else if(close.indexOf(str[i])>=0){
-        else if(Close[str[i]!=undefined])
+        else if(Close[str[i]!=undefined]){
             //isEmpty 
             if(bmStack.isEmpty()){
                 return "unMatch";
