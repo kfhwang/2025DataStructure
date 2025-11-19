@@ -27,7 +27,7 @@ console.log(bracketMatch(str));
 // var close="}])>";//["}","]",")"]
 //JSON
 var Bracket={"{":"}", "[":"]", "(":")" }
-var Close={"}":"{", "]":"[", ")":"(" }
+//var Close={"}":"{", "]":"[", ")":"(" }
 //Bracket.{ =
 Bracket["<"]=">"
 
@@ -43,7 +43,8 @@ function bracketMatch(str) {
         }
         //else if (str[i] == '}' || str[i] == ']' || str[i] == ')') {
         //else if(close.indexOf(str[i])>=0){
-        else if(Close[str[i]!=undefined]){
+        //else if(Close[str[i]!=undefined]){
+        else if(JSON.stringify(Bracket).indexOf(str[i]) >=0 ){
             //isEmpty 
             if(bmStack.isEmpty()){
                 return "unMatch";
