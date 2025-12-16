@@ -18,6 +18,7 @@ const preorderTraversal = (treeArray) => {
 
   while (stack.length > 0) {
     const currentIndex = stack.pop();
+    console.log("Current:"+treeArray[currentIndex]);
     if (treeArray[currentIndex] === null) continue;
 
     // Visit the current node (add its value to the result).
@@ -61,4 +62,4 @@ rl.question(
   }
 );
 
-//a,b,c,d,null,e,f,null,g,h,i
+//a,b,c,d,null,e,f,null,g,null,null,h,i
